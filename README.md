@@ -1585,19 +1585,19 @@ wear\_time\_on\_valid\_days
 
 <th style="text-align:right;">
 
-tac\_23to5removed
+tac\_inbedremoved
 
 </th>
 
 <th style="text-align:right;">
 
-tlac\_23to5removed
+tlac\_inbedremoved
 
 </th>
 
 <th style="text-align:right;">
 
-ltac\_23to5removed
+ltac\_inbedremoved
 
 </th>
 
@@ -1629,87 +1629,19 @@ ltac\_23to5removed
 
 <td style="text-align:right;">
 
-2735749
+2746582
 
 </td>
 
 <td style="text-align:right;">
 
-6052.84
+6062.753
 
 </td>
 
 <td style="text-align:right;">
 
-14.82192
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<table class="table" style="font-size: 14px; margin-left: auto; margin-right: auto;">
-
-<thead>
-
-<tr>
-
-<th style="text-align:right;">
-
-astp\_23to5removed
-
-</th>
-
-<th style="text-align:right;">
-
-satp\_23to5removed
-
-</th>
-
-<th style="text-align:right;">
-
-time\_spent\_active\_23to5removed
-
-</th>
-
-<th style="text-align:right;">
-
-time\_spent\_nonactive\_23to5removed
-
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td style="text-align:right;">
-
-0.1702018
-
-</td>
-
-<td style="text-align:right;">
-
-0.1395057
-
-</td>
-
-<td style="text-align:right;">
-
-483.25
-
-</td>
-
-<td style="text-align:right;">
-
-596.75
+14.82587
 
 </td>
 
@@ -1727,25 +1659,25 @@ time\_spent\_nonactive\_23to5removed
 
 <th style="text-align:right;">
 
-no\_of\_active\_bouts\_23to5removed
+astp\_inbedremoved
 
 </th>
 
 <th style="text-align:right;">
 
-no\_of\_nonactive\_bouts\_23to5removed
+satp\_inbedremoved
 
 </th>
 
 <th style="text-align:right;">
 
-mean\_active\_bout\_23to5removed
+time\_spent\_active\_inbedremoved
 
 </th>
 
 <th style="text-align:right;">
 
-mean\_nonactive\_bout\_23to5removed
+time\_spent\_nonactive\_inbedremoved
 
 </th>
 
@@ -1759,25 +1691,93 @@ mean\_nonactive\_bout\_23to5removed
 
 <td style="text-align:right;">
 
-82.25
+0.1703551
 
 </td>
 
 <td style="text-align:right;">
 
-83.25
+0.1580934
 
 </td>
 
 <td style="text-align:right;">
 
-5.87538
+485.75
 
 </td>
 
 <td style="text-align:right;">
 
-7.168168
+529.75
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<table class="table" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+
+<thead>
+
+<tr>
+
+<th style="text-align:right;">
+
+no\_of\_active\_bouts\_inbedremoved
+
+</th>
+
+<th style="text-align:right;">
+
+no\_of\_nonactive\_bouts\_inbedremoved
+
+</th>
+
+<th style="text-align:right;">
+
+mean\_active\_bout\_inbedremoved
+
+</th>
+
+<th style="text-align:right;">
+
+mean\_nonactive\_bout\_inbedremoved
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:right;">
+
+82.75
+
+</td>
+
+<td style="text-align:right;">
+
+83.75
+
+</td>
+
+<td style="text-align:right;">
+
+5.870091
+
+</td>
+
+<td style="text-align:right;">
+
+6.325373
 
 </td>
 

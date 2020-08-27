@@ -244,7 +244,7 @@ activity_stats(acc, acc_ts, in_bed_time = in_bed_time, out_bed_time = out_bed_ti
 ```
 
 ```{r, echo = FALSE}
-out <- activity_stats(acc, acc_ts, exclude_minutes = subset_11pm_5am) 
+out <- activity_stats(acc, acc_ts, in_bed_time = in_bed_time, out_bed_time = out_bed_time) 
 tbl_1 <- kable(out[, 1:6]) %>% tbl_styl_f(.)
 tbl_2 <- kable(out[, 7:10]) %>% tbl_styl_f(.)
 tbl_3 <- kable(out[, 11:14]) %>% tbl_styl_f(.)
