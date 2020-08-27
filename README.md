@@ -1519,10 +1519,9 @@ package. The sleep data columns relevant are,
 
   - `Subject Name` - subject IDs coressponding to AC data, stored in
     `extdata_fnames`,
-      - `In Bed Time` - ActiLife-estimated start of in-bed interval for
-        each day of the measurement,
-      - `Out Bed Time` - ActiLife-estimated end of in-bed interval.
-        </br>
+  - `In Bed Time` - ActiLife-estimated start of in-bed interval for each
+    day of the measurement,
+  - `Out Bed Time` - ActiLife-estimated end of in-bed interval. </br>
 
 <!-- end list -->
 
