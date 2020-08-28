@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 The `arcstats` package allows to generate summaries of the minute-level physical activity (PA) data. The default parameters are chosen for the Actigraph activity counts collected with a wrist-worn device; however, the package can be used for all minute-level PA data with the corresponding timepstamps vector.
 
-Below, we demonstrate the use of `arcstats` with the attached, exemplary minute-level Actigraph PA counts data.
+Below, we demonstrate the use of `arcstats` with the attached, exemplary minute-level Actigraph PA counts data. 
 
 ## Installation
 

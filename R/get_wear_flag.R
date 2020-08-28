@@ -10,7 +10,7 @@
 #'
 #' The wear/non-wear flag is determined based on activity counts data.
 #' A minute is classified as non-wear if it belongs to any
-#' \code{nonwear_min_win} minutes-long interval of consecutive values 0 in
+#' \code{nonwear_0s_minimum_window} minutes-long interval of consecutive values 0 in
 #' activity counts data vector;
 #' here, "any interval" implies that a particular minute may be located
 #' at any location (begining, middle, end) of interval of consecutive values 0
@@ -29,7 +29,7 @@
 #' a nonwear time interval.
 #'
 #' @param acc A numeric vector. A minute-level activity counts data vector.
-#' @param nonwear_min_win A numeric scalar. A minimum number of consecutive
+#' @param nonwear_0s_minimum_window A numeric scalar. A minimum number of consecutive
 #' minutes with 0 activity count to be considered non-wear.
 #'
 #' @return An integer vector. It has value \code{1} for a wear
@@ -56,7 +56,7 @@
 #' ## Get wear/non-wear flag
 #' wear_flag <- get_wear_flag(acc)
 #'
-get_wear_flag <- function(acc, nonwear_min_win = 90){
+get_wear_flag <- function(acc, nonwear_0s_minimum_window = 90){
 
   ## Define output vector (tentatively filled with 1's wear flag only)
   out <- rep(1, length(acc))
@@ -68,18 +68,18 @@ get_wear_flag <- function(acc, nonwear_min_win = 90){
   ac_non0[is.na(ac_non0)] <- 0
 
   ## Compute running mean vector. Each element is a value of mean computed
-  ## within `nonwear_min_win`-long interval starting at the element's index
-  ac_non0_runningMean <- runstats::RunningMean(x = ac_non0, W = nonwear_min_win, circular = FALSE)
+  ## within `nonwear_0s_minimum_window`-long interval starting at the element's index
+  ac_non0_runningMean <- runstats::RunningMean(x = ac_non0, W = nonwear_0s_minimum_window, circular = FALSE)
 
-  ## Get indices that are a 1st element of a `nonwear_min_win`-long interval of consecutive zeros
+  ## Get indices that are a 1st element of a `nonwear_0s_minimum_window`-long interval of consecutive zeros
   ## (1st element of a non-wear interval)
-  nonwear_idx1_vec <- which(ac_non0_runningMean < 1/nonwear_min_win)
+  nonwear_idx1_vec <- which(ac_non0_runningMean < 1/nonwear_0s_minimum_window)
 
-  ## For each identified 1st index of a `nonwear_min_win`-long non-wear interval,
-  ## define a non-wear flag for all indices of that `nonwear_min_win`-long non-wear interval
+  ## For each identified 1st index of a `nonwear_0s_minimum_window`-long non-wear interval,
+  ## define a non-wear flag for all indices of that `nonwear_0s_minimum_window`-long non-wear interval
   ## in the output vector
   for (idx1 in nonwear_idx1_vec){
-    idx_all <- idx1 + seq(0, by = 1, length.out = nonwear_min_win)
+    idx_all <- idx1 + seq(0, by = 1, length.out = nonwear_0s_minimum_window)
     out[idx_all] <- 0
   }
 

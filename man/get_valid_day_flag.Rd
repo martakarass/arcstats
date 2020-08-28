@@ -4,7 +4,7 @@
 \alias{get_valid_day_flag}
 \title{Compute valid day flag}
 \usage{
-get_valid_day_flag(wear_flag, nonwear_max_win = 144)
+get_valid_day_flag(wear_flag, validday_nonwear_maximum_window = 144)
 }
 \arguments{
 \item{wear_flag}{An integer vector. The vector has value \code{1} if a minute
@@ -19,7 +19,7 @@ is a multiple of number of minutes in a full day
  See \code{arcstats::midnight_to_midnight()},
  \code{arcstats::get_wear_flag()}.}
 
-\item{nonwear_max_win}{In integer scalar. Maxmimum number of minutes of non-wear/not
+\item{validday_nonwear_maximum_window}{In integer scalar. Maxmimum number of minutes of non-wear/not
 collecting data so as the day is still considered valid. Default is \code{144}
 (10\% of 1440 minutes of a full day).}
 }
@@ -38,7 +38,7 @@ The flag is \code{1} if a day is
 determined to be valid, and \code{0} otherwise.
 
 A day is determined to be valid if it has no more than
-\code{nonwear_max_win} minutes of missing data.
+\code{validday_nonwear_maximum_window} minutes of missing data.
 Data may be missing due to
 identified sensor nonwear or because activity data collection has not started
 yet/has finished already in a particular day.

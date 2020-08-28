@@ -10,6 +10,8 @@ activity_stats(
   acc_ts,
   impute_missing = TRUE,
   sedentary_thresh = 1853,
+  nonwear_0s_minimum_window = 90,
+  validday_nonwear_maximum_window = 144,
   subset_minutes = NULL,
   exclude_minutes = NULL,
   in_bed_time = NULL,
@@ -29,6 +31,13 @@ data imputation (see Details). Default is \code{TRUE}.}
 \item{sedentary_thresh}{A numeric scalar. If an activity count value falls
 below it then a corresponding minute is characterized as sedentary; othervise,
 a corresponding minute is characterized as active. Default is \code{1853}.}
+
+\item{nonwear_0s_minimum_window}{A numeric scalar. A minimum number of consecutive
+minutes with 0 activity count to be considered non-wear.}
+
+\item{validday_nonwear_maximum_window}{In integer scalar. Maxmimum number of minutes of non-wear/not
+collecting data so as the day is still considered valid. Default is \code{144}
+(10\% of 1440 minutes of a full day).}
 
 \item{subset_minutes}{Integer vector. Contains subset of a day's minutes
 within which activity summaries are to be computed. May take values from
@@ -124,4 +133,9 @@ with mortality in US adults: The NHANES study. https://doi.org/10.1101/182337
 Choi, L., Liu, Z., Matthews, C. E., & Buchowski, M. S. (2011). Validation of
 accelerometer wear and nonwear time classification algorithm. Medicine and
 Science in Sports and Exercise. https://doi.org/10.1249/MSS.0b013e3181ed61a3
+
+Koster, A., Shiroma, E. J., Caserotti, P., Matthews, C. E., Chen, K. Y.,
+Glynn, N. W., & Harris, T. B. (2016). Comparison of Sedentary Estimates
+between activPAL and Hip- and Wrist-Worn ActiGraph. Medicine and science in
+sports and exercise, 48(8), 1514–1522. https://doi.org/10.1249/MSS.0000000000000924
 }

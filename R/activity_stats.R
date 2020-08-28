@@ -26,6 +26,11 @@
 #' @param sedentary_thresh A numeric scalar. If an activity count value falls
 #' below it then a corresponding minute is characterized as sedentary; othervise,
 #' a corresponding minute is characterized as active. Default is \code{1853}.
+#' @param nonwear_0s_minimum_window A numeric scalar. A minimum number of consecutive
+#' minutes with 0 activity count to be considered non-wear.
+#' @param validday_nonwear_maximum_window In integer scalar. Maxmimum number of minutes of non-wear/not
+#' collecting data so as the day is still considered valid. Default is \code{144}
+#' (10\% of 1440 minutes of a full day).
 #' @param subset_minutes Integer vector. Contains subset of a day's minutes
 #' within which activity summaries are to be computed. May take values from
 #' \code{1} (day's minute from 00:00 to 00:01) to
@@ -100,16 +105,24 @@
 #' accelerometer wear and nonwear time classification algorithm. Medicine and
 #' Science in Sports and Exercise. https://doi.org/10.1249/MSS.0b013e3181ed61a3
 #'
+#' Koster, A., Shiroma, E. J., Caserotti, P., Matthews, C. E., Chen, K. Y.,
+#' Glynn, N. W., & Harris, T. B. (2016). Comparison of Sedentary Estimates
+#' between activPAL and Hip- and Wrist-Worn ActiGraph. Medicine and science in
+#' sports and exercise, 48(8), 1514–1522. https://doi.org/10.1249/MSS.0000000000000924
+#'
 activity_stats <- function(
   acc,
   acc_ts,
   impute_missing = TRUE,
   sedentary_thresh = 1853,
+  nonwear_0s_minimum_window = 90,
+  validday_nonwear_maximum_window = 144,
   subset_minutes = NULL,
   exclude_minutes = NULL,
   in_bed_time = NULL,
   out_bed_time = NULL,
-  adjust_out_colnames = TRUE)
+  adjust_out_colnames = TRUE
+  )
 {
 
   ## Checks for arguments
@@ -123,10 +136,10 @@ activity_stats <- function(
   acc <- midnight_to_midnight(acc, acc_ts)
 
   ## Get wear/non-wear flag
-  wear_flag <- get_wear_flag(acc)
+  wear_flag <- get_wear_flag(acc, nonwear_0s_minimum_window = nonwear_0s_minimum_window)
 
   ## Get valid/non-valid day flag
-  valid_day_flag <- get_valid_day_flag(wear_flag)
+  valid_day_flag <- get_valid_day_flag(wear_flag, validday_nonwear_maximum_window = validday_nonwear_maximum_window)
 
   ## Impute missing data in acc data vector
   if (impute_missing){

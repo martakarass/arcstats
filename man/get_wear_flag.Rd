@@ -4,12 +4,12 @@
 \alias{get_wear_flag}
 \title{Compute wear/non-wear flag}
 \usage{
-get_wear_flag(acc, nonwear_min_win = 90)
+get_wear_flag(acc, nonwear_0s_minimum_window = 90)
 }
 \arguments{
 \item{acc}{A numeric vector. A minute-level activity counts data vector.}
 
-\item{nonwear_min_win}{A numeric scalar. A minimum number of consecutive
+\item{nonwear_0s_minimum_window}{A numeric scalar. A minimum number of consecutive
 minutes with 0 activity count to be considered non-wear.}
 }
 \value{
@@ -28,7 +28,7 @@ Choi et al. (2011).
 
 The wear/non-wear flag is determined based on activity counts data.
 A minute is classified as non-wear if it belongs to any
-\code{nonwear_min_win} minutes-long interval of consecutive values 0 in
+\code{nonwear_0s_minimum_window} minutes-long interval of consecutive values 0 in
 activity counts data vector;
 here, "any interval" implies that a particular minute may be located
 at any location (begining, middle, end) of interval of consecutive values 0
