@@ -24,11 +24,11 @@
 #' @param impute_missing A logical scalar. Whether or not to perform missing
 #' data imputation (see Details). Default is \code{TRUE}.
 #' @param sedentary_thresh A numeric scalar. If an activity count value falls
-#' below it then a corresponding minute is characterized as sedentary; othervise,
+#' below it then a corresponding minute is characterized as sedentary; otherwise,
 #' a corresponding minute is characterized as active. Default is \code{1853}.
 #' @param nonwear_0s_minimum_window A numeric scalar. A minimum number of consecutive
 #' minutes with 0 activity count to be considered non-wear.
-#' @param validday_nonwear_maximum_window In integer scalar. Maxmimum number of minutes of non-wear/not
+#' @param validday_nonwear_maximum_window In integer scalar. Maximum number of minutes of non-wear/not
 #' collecting data so as the day is still considered valid. Default is \code{144}
 #' (10\% of 1440 minutes of a full day).
 #' @param subset_minutes Integer vector. Contains subset of a day's minutes

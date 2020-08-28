@@ -19,7 +19,7 @@
 #' belongs to a valid day, and \code{0} otherwise. See
 #' \code{arcstats::get_valid_day_flag()}.
 #' @param sedentary_thresh A numeric scalar. If an activity count value falls
-#' below it then a corresponding minute is characterized as sedentary; othervise,
+#' below it then a corresponding minute is characterized as sedentary; otherwise,
 #' a corresponding minute is characterized as active. Default is \code{1853}.
 #' @param subset_minutes Integer vector. Contains subset of a day's minutes
 #' within which activity summaries are to be computed. May take values from

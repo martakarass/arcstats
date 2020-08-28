@@ -13,8 +13,8 @@
 #' \code{nonwear_0s_minimum_window} minutes-long interval of consecutive values 0 in
 #' activity counts data vector;
 #' here, "any interval" implies that a particular minute may be located
-#' at any location (begining, middle, end) of interval of consecutive values 0
-#' to be classified as a non-wear. Othwerwise, a particular minute is classified
+#' at any location (beginning, middle, end) of interval of consecutive values 0
+#' to be classified as a non-wear. Otherwise, a particular minute is classified
 #' as wear.
 #'
 #' Similarly to recommendations in Discussion in Choi et al. (2011), the method

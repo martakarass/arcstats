@@ -24,13 +24,13 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The `arcstats` package allows to generate summaries of the minute-level physical activity (PA) data. The default parameters are chosen for the Actigraph activity counts collected with a wrist-worn device; however, the package can be used for all minute-level PA data with the corresponding timepstamps vector.
+The `arcstats` package allows to generate summaries of the minute-level physical activity (PA) data. The default parameters are chosen for the Actigraph activity counts collected with a wrist-worn device; however, the package can be used for all minute-level PA data with the corresponding timestamps vector.
 
 Below, we demonstrate the use of `arcstats` with the attached, exemplary minute-level Actigraph PA counts data. 
 
 ## Installation
 
-You can install the released version of arcstats from [GitHub](https://github.com/). Note you may need to install `devtools` package if not yet installed (the line commened below). 
+You can install the released version of arcstats from [GitHub](https://github.com/). Note you may need to install `devtools` package if not yet installed (the line commented below). 
 
 
 ``` r
@@ -106,7 +106,7 @@ tbl_1; tbl_2; tbl_3
 
 To explain `activity_stats` method output, we define activity count, active/non-active minute, and active/non-active bout. 
 
-- Activity count (AC) - a munute-level metric of PA volume
+- Activity count (AC) - a minute-level metric of PA volume
 - Active minute - AC labeled as active (non-sedentary). For Wrist-worn Actigraph
 we use AC>=1853 (defaut threshold).
 - Active bout - sequence of >=1 consecutive active minute(s). 
@@ -157,7 +157,7 @@ tbl_3 <- kable(out[, 11:14]) %>% tbl_styl_f(.)
 tbl_1; tbl_2; tbl_3
 ```
 
-By default, column names have a suffix added to denote that a subset of munutes was used (here, `_0to6only`). This can be disabled by setting `adjust_out_colnames` to `FALSE`. 
+By default, column names have a suffix added to denote that a subset of minutes was used (here, `_0to6only`). This can be disabled by setting `adjust_out_colnames` to `FALSE`. 
 
 ```{r, results = 'hide'}
 subset_12am_6am = 1 : (6/24 * 1440)
@@ -185,7 +185,7 @@ tbl_1; tbl_2; tbl_3
 
 The `exclude_minutes` argument allows to specify subset of a day's minutes excluded for computing activity summaries. 
 
-Here, we summarize PA while excluding observatins between 11:00 PM and 5:00 AM. 
+Here, we summarize PA while excluding observations between 11:00 PM and 5:00 AM. 
 
 ```{r, results = 'hide'}
 subset_11pm_5am <- c(
@@ -288,7 +288,7 @@ c(length(acc[!is.na(acc)]), length(acc))
 Function `get_wear_flag` computes wear/non-wear flag (`1/0`) for each minute of activity counts data. Method implements wear/non-wear detection algorithm proposed by Choi et al. (2011). 
 
 - The returned vector has value `1` for wear and `0` for non-wear flagged minute.
-- If there is an `NA` entry in a data imput vector, then the returned vector will have a corresponding entry set to `NA` too.
+- If there is an `NA` entry in a data input vector, then the returned vector will have a corresponding entry set to `NA` too.
 
 ```{r}
 wear_flag <- get_wear_flag(acc)
@@ -316,15 +316,9 @@ apply(valid_day_flag_mat, 1, mean, na.rm = TRUE)
 
 ### Impute missing data with `impute_missing_data`
 
-Function `impute_missing_data` imputes missing data in valid days based on the "average day profile". 
+Here, all four valid days have 100% of wear time. We hence demonstrate the `impute_missing_data` method by artificially replacing 1h (4%) of a valid day with non-wear and running `impute_missing_data` function then. 
 
-- An "average day profile" is computed as a minute-wise average of wear-time AC across valid days.
-
-- AC data are imputed from "average day profile" for minutes identified as non-wear in days identified as valid. 
-
-Here, all four valid days have 100% of wear time (recall result of proportion of wear time across all days: `0.583 1.000 0.874 0.679 1.000 1.000 1.000 0.338`). We hence demonstrate the `impute_missing_data` method by artificially replacing 1h (4%) of a valid day with non-wear. 
-
-JU: I vave no idea what the last paragraph means. I would remove it completely.
+Function `impute_missing_data` imputes missing data from the "average day profile". An "average day profile" is computed as a minute-wise average of AC across valid days.
 
 ```{r}
 ## Copies of original objects for the purpose of demonstration

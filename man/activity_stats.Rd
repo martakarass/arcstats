@@ -29,13 +29,13 @@ data collection.}
 data imputation (see Details). Default is \code{TRUE}.}
 
 \item{sedentary_thresh}{A numeric scalar. If an activity count value falls
-below it then a corresponding minute is characterized as sedentary; othervise,
+below it then a corresponding minute is characterized as sedentary; otherwise,
 a corresponding minute is characterized as active. Default is \code{1853}.}
 
 \item{nonwear_0s_minimum_window}{A numeric scalar. A minimum number of consecutive
 minutes with 0 activity count to be considered non-wear.}
 
-\item{validday_nonwear_maximum_window}{In integer scalar. Maxmimum number of minutes of non-wear/not
+\item{validday_nonwear_maximum_window}{In integer scalar. Maximum number of minutes of non-wear/not
 collecting data so as the day is still considered valid. Default is \code{144}
 (10\% of 1440 minutes of a full day).}
 

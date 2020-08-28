@@ -18,7 +18,9 @@ LazyData: true
 Suggests: 
     testthat,
     data.table,
-    dplyr
+    dplyr,
+    spelling
 Imports: 
     lubridate,
     runstats
+Language: en-US
